@@ -4,6 +4,7 @@ Created on Wed Mar 23 17:06:11 2022
 
 @author: sampp
 """
+
 print("Ohjelma Käynnistyy...")
 
 import os, re
@@ -34,15 +35,15 @@ for fname in os.listdir():
         
         for i, rivi in netot.iterrows():  
             
-            tuote = [["", str(numero),"", rivi[5], rivi[17],"EUR"]]
+            tuote = [["", str(numero),"", rivi[5], rivi[17],"EUR",rivi[20]]]
             print(tuote)
             kokous=kokous.append(tuote)
           
     
-df2 = kokous.set_axis(['tyhja', 'Asiakas','tyhja2', 'Tuote', 'Nettohinta', 'Valuutta'], axis=1, inplace=False)
+df2 = kokous.set_axis(['tyhja', 'Asiakas','tyhja2', 'Tuote', 'Nettohinta', 'Valuutta', 'yksikko'], axis=1, inplace=False)
 
 os.chdir(nyt)
             
-df2.to_csv('netot.csv', index=False, sep=str(";"), decimal=(","))
+df2.to_csv('netotMY.csv', index=False, sep=str(";"), decimal=(","))
 
-print("luotu netot.csv sijaintiin: " + str(nyt))
+print("luotu netotMY.csv sijaintiin: " + str(nyt))
